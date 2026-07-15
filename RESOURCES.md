@@ -139,6 +139,8 @@ uv pip install google-genai sentence-transformers chromadb langchain langchain-c
 #### Lesson 16 — Gemini API Fundamentals
 - Search: `Gemini API quickstart Python`; `Google AI Studio get API key`.
 - Docs: ai.google.dev → Gemini API → Python quickstart (the canonical starting point).
+- Once comfortable, skim the vendor quickstarts real postings actually name: `OpenAI API
+  Python quickstart`; `Anthropic API Python quickstart`. Same concepts, different SDK shape.
 
 #### Lesson 17 — Prompt Engineering
 - Course (free): **DeepLearning.AI — "ChatGPT Prompt Engineering for Developers"** (short
@@ -153,82 +155,139 @@ uv pip install google-genai sentence-transformers chromadb langchain langchain-c
 - Search: `Gemini API streaming Python generate_content_stream`.
 - Docs: Gemini API docs → streaming section (same page as Lesson 6, now applied).
 
+#### Lesson 20 — Multimodal Inputs
+- Search: `Gemini API image input Python`; `Gemini API multimodal quickstart`.
+- Docs: ai.google.dev → Gemini API → "Vision"/"Image understanding" page, and "Audio
+  understanding" page (same SDK call shape as text, just a different input part).
+
+#### Lesson 21 — Resilience: Rate Limits, Retries & Backoff
+- Search: `exponential backoff retry Python`; `Gemini API rate limits quotas`.
+- Tool: `tenacity` (free, open source retry library). Search: `tenacity quickstart Python`.
+- Setup: `uv pip install tenacity`.
+- Docs: Gemini API docs → rate limits/quotas page (free-tier request-per-minute limits).
+
 ---
 
 ## Phase 3 — Knowledge Systems (RAG)
 
-#### Lesson 20 — Embeddings in Applications
+#### Lesson 22 — Embeddings in Applications
 - Same tool as Lesson 3 (`sentence-transformers`), or `Gemini API embeddings Python` for the
   hosted alternative once you want to compare.
 
-#### Lesson 21 — Vector Databases
+#### Lesson 23 — Vector Databases
 - Search: `ChromaDB getting started Python`.
 - Docs: Chroma docs — "Getting Started" (`uv pip install chromadb`).
-- Know-it-too (for later/interviews): `pgvector tutorial`, `FAISS quickstart`.
+- Know-it-too (for later/interviews): `pgvector tutorial`, `FAISS quickstart`, `HNSW
+  approximate nearest neighbor explained` — plus **Pinecone** and **Weaviate**, the two
+  managed vector DBs named most often in real job postings (both have free tiers; search
+  `Pinecone quickstart Python` / `Weaviate quickstart Python`).
 
-#### Lesson 22 — RAG Fundamentals
+#### Lesson 24 — Document Parsing for Real-World Data
+- Search: `LangChain document loaders`; `LangChain PyPDFLoader`; `unstructured Python
+  library parse PDF`.
+- Tool: LangChain's built-in loaders, or `unstructured` (open source) for messier files
+  (tables, HTML boilerplate).
+- Setup: `uv pip install pypdf unstructured`.
+
+#### Lesson 25 — RAG Fundamentals
 - Search: `IBM Technology what is RAG`; `build RAG from scratch Python no framework`.
 - Video: IBM Technology — "What is Retrieval-Augmented Generation (RAG)?"
 
-#### Lesson 23 — Advanced RAG
+#### Lesson 26 — Advanced RAG
 - Course (free): **DeepLearning.AI — "LangChain: Chat with Your Data"**.
-- Search: `LangChain RAG tutorial`; `LangChain PyPDFLoader`; `RAG reranking explained`.
-- Setup: `uv pip install langchain langchain-community langchain-google-genai`.
+- Search: `LangChain RAG tutorial`; `RAG reranking explained`; `BM25 hybrid search RAG`;
+  `HyDE hypothetical document embeddings explained`; `query rewriting RAG explained`.
+- Setup: `uv pip install langchain langchain-community langchain-google-genai rank_bm25`
+  (`rank_bm25` gives you the free keyword-search half of hybrid search).
+
+#### Lesson 27 — Long Context vs. RAG
+- Search: `lost in the middle LLM long context explained`; `long context vs RAG tradeoffs`.
+- Read: 1–2 recent free vendor/engineering blog posts comparing long-context vs. RAG —
+  cross-check publish dates, context-window sizes and guidance shift quickly.
 
 ---
 
 ## Phase 4 — AI Agents
 
-#### Lesson 24 — Function Calling
+#### Lesson 28 — Function Calling
 - Search: `Gemini API function calling Python`.
 - Docs: Gemini API docs → "Function calling" page (has a runnable Python example).
 
-#### Lesson 25 — Tool Calling
-- Same docs page as Lesson 24, extended to multiple tool definitions.
+#### Lesson 29 — Tool Calling
+- Same docs page as Lesson 28, extended to multiple tool definitions.
 
-#### Lesson 26 — AI Agents (ReAct, hand-rolled)
+#### Lesson 30 — AI Agents (ReAct, hand-rolled)
 - Search: `ReAct pattern LLM agent explained`; `build agent from scratch Python no framework`.
 - Read: the original ReAct paper's abstract/intro (arXiv, free) for the Thought/Action/
   Observation framing — you don't need the full paper, just the pattern.
+- Agent-eval axes: Search: `agent evaluation tool selection quality task completion`;
+  `LLM agent trajectory evaluation`. No single canonical free course here yet — this is a
+  newer topic, so cross-check 2–3 sources rather than trusting one.
 
-#### Lesson 27 — Agent Frameworks
+#### Lesson 31 — Agent Frameworks
 - Course (free): **DeepLearning.AI — "AI Agents in LangGraph"**.
 - Search: `LangGraph quickstart`; `Google ADK quickstart`; `CrewAI quickstart` (pick one
   primary framework — LangGraph is recommended since it maps well to enterprise Gemini stacks).
 - Setup: `uv pip install langgraph`.
 
-#### Lesson 28 — Model Context Protocol (MCP)
+#### Lesson 32 — Model Context Protocol (MCP)
 - Search: `Model Context Protocol quickstart Python`; `build an MCP server Python`.
 - Docs: modelcontextprotocol.io — official spec + Python SDK quickstart (free, open).
 - Practical: you're already using an MCP-compatible client right now (Claude Code) — build
   a server and connect it here to close the loop.
 
+#### Lesson 33 — Multi-Agent Orchestration
+- Search: `LangGraph multi-agent supervisor pattern`; `CrewAI multi-agent quickstart`.
+- Docs: LangGraph docs → "Multi-agent systems" section (same install as Lesson 31).
+
+#### Lesson 34 — Agent Security: Prompt Injection & Excessive Agency
+- Search: `indirect prompt injection agents explained`; `OWASP Top 10 for LLM applications`.
+- Read: OWASP's free **"Top 10 for LLM Applications"** (owasp.org) — dedicated, vendor-neutral
+  entries for prompt injection and excessive agency, with concrete mitigations.
+
 ---
 
 ## Phase 5 — Production GenAI
 
-#### Lesson 29 — FastAPI for GenAI
+#### Lesson 35 — FastAPI for GenAI
 - Search: `FastAPI first steps`; `FastAPI streaming response`.
 - Docs: fastapi.tiangolo.com — "First Steps" + "StreamingResponse" section.
 - Setup: `uv pip install fastapi uvicorn`.
 
-#### Lesson 30 — AI Application Architecture
+#### Lesson 36 — AI Application Architecture
 - Search: `RAG system architecture diagram`; `production LLM app architecture`.
 - Read: any 2–3 vendor engineering blogs (Anthropic, OpenAI, Google) tagged "building with
   LLMs" — cross-reference rather than trusting one source, architectures vary by use case.
 
-#### Lesson 31 — Deployment
+#### Lesson 37 — Deployment (Docker + CI/CD + hosting)
+- Search: `Dockerfile Python FastAPI example`; `Docker getting started`.
+- Docs: Docker's official "Get Started" guide; `docker.com` — free, no paid tier needed for
+  local builds.
+- CI: `GitHub Actions Python workflow quickstart` — free for public repos (and generous free
+  minutes for private ones). Setup: a `.github/workflows/*.yml` that runs `pytest`/your eval
+  script on push.
 - Search: `deploy FastAPI free Render`; `deploy FastAPI free Railway`.
-- Docs: Render or Railway's official "Deploy a FastAPI app" guide (both have free tiers).
+- Docs: Render or Railway's official "Deploy a FastAPI app" guide (both have free tiers, and
+  both support deploying directly from a Dockerfile).
 
-#### Lesson 32 — Observability
+#### Lesson 38 — Observability
 - Search: `Langfuse get started Python`.
 - Docs: langfuse.com — "Get Started" (self-host free, or free cloud tier).
 - Setup: `uv pip install langfuse`.
 
-#### Lesson 33 — AI Safety & Guardrails
+#### Lesson 39 — Caching & Cost Optimization
+- Search: `LLM semantic caching explained`; `Gemini API context caching`; `LLM cost
+  optimization model routing`.
+- Docs: ai.google.dev → Gemini API → "Context caching" page.
+
+#### Lesson 40 — Prompt Versioning & Regression Testing
+- Search: `RAGAS quickstart`; `prompt regression testing LLM applications`.
+- Tool: RAGAS (the same eval tool previewed in Lesson 11).
+- Setup: `uv pip install ragas`.
+
+#### Lesson 41 — AI Safety & Guardrails
 - Search: `LLM prompt injection defenses`; `PII detection Python free`; `LLM guardrails
-  open source`.
+  open source`; `responsible AI bias mitigation LLM applications`.
 - Tool options: `guardrails-ai` (open source) or hand-rolled rule checks — either is fine for
   this exercise; the concept matters more than the specific library.
 
@@ -236,9 +295,21 @@ uv pip install google-genai sentence-transformers chromadb langchain langchain-c
 
 ## Phase 6 — Portfolio Projects
 
-No new tools — these projects recombine everything from Phases 1–5. The only new skill is
-**writing them up**: a short README per project with what/why/result and, where you have
-one, an eval number (see RAGAS from Lesson 23/Phase 5).
+No new tools — these projects recombine everything from Phases 1–5. The new skills are
+**researching a real problem before building** and **writing it up**.
+
+- Research: any job board, searching `AI Engineer` + your chosen domain (finance,
+  healthcare, legal, e-commerce, etc.); read 2–3 company engineering blogs in that space too.
+- Free/synthetic data for whatever problem you pick: search `Kaggle datasets <domain>`,
+  or generate synthetic data yourself (an LLM call can generate realistic-looking synthetic
+  records for you — just never use real confidential data, per the data-safety rule).
+- Write-up: a short README per project with what/why/result and, where you have one, an
+  eval number (see RAGAS from Lesson 40/Phase 5) — plus a working `Dockerfile` and a CI
+  workflow that runs your eval set (Lesson 37).
+- Reference for how to run this exercise properly: the `alexeygrigorev/ai-engineering-
+  field-guide` repo's `portfolio/` section (GitHub, free) walks through picking a domain,
+  reading real postings, and scoping a small version of a real problem — read it before you
+  start Phase 6.
 
 ---
 

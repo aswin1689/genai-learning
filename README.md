@@ -79,7 +79,7 @@ route:
 | File | Purpose |
 |---|---|
 | **README.md** | You are here — overview, philosophy, setup. |
-| **ROADMAP.md** | The full curriculum: 6 phases, 33 lessons + portfolio projects, each with a concept explainer, a hands-on exercise, and a completion checkbox. |
+| **ROADMAP.md** | The full curriculum: 6 phases, 41 lessons + portfolio projects, each with a concept explainer, a hands-on exercise, and a completion checkbox. |
 | **RESOURCES.md** | Every free resource this roadmap uses — courses, docs, videos — organized by phase/lesson, plus setup/install steps. |
 | **INTERVIEW_PREP.md** | Concept-fluency questions, system-design prompts, and portfolio talking points to get interview-ready. |
 | **PYTHON-FOR-GENAI.md** | A from-zero Python primer scoped to exactly what these lessons need. Read this first if any lesson's code looks unfamiliar. |
@@ -107,10 +107,10 @@ genai-learning/
 ├── phase1_llm_foundations/        # Lessons 1–15 — concepts, mostly no API key needed
 │   └── lesson03_embeddings/
 │       └── embeddings_semantic_search.py   # done — local embeddings + cosine similarity
-├── phase2_gemini_api/             # Lessons 16–19
-├── phase3_knowledge_systems/      # Lessons 20–23 — embeddings in practice, vector DBs, RAG
-├── phase4_ai_agents/              # Lessons 24–28 — function calling, agents, MCP
-├── phase5_production_genai/       # Lessons 29–33 — FastAPI, deployment, observability, safety
+├── phase2_gemini_api/             # Lessons 16–21 — API basics, multimodal, resilience
+├── phase3_knowledge_systems/      # Lessons 22–27 — embeddings in practice, vector DBs, RAG
+├── phase4_ai_agents/              # Lessons 28–34 — function calling, agents, MCP, security
+├── phase5_production_genai/       # Lessons 35–41 — FastAPI, deployment, cost, safety
 └── projects/                      # Phase 6 portfolio projects
 ```
 
@@ -132,6 +132,7 @@ what surprised you), and at least one exercise you completed from scratch (not c
 - **RAGAS** — evaluation
 - **Langfuse** — observability
 - **Docker** — packaging for deployment
+- **GitHub Actions** — CI eval gates (catching prompt/model regressions on push)
 
 ---
 
